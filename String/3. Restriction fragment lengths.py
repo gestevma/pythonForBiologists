@@ -16,8 +16,13 @@ dna_seq = "ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCAT"
 
 cut_position = dna_seq.find("GAATTC") #Obtain the position of motif, it gives the position of the first element (the G)
 
-dna_forward_cut = dna_seq[:cut_position+1] #substring from beginnig to G of motif
+dna_forward_cut = dna_seq[:cut_position+1] #substring from beginnig to G of motif (I cut after the G position)
 dna_backward_cut = dna_seq[cut_position+1:] #Substring from motif (after G) to the end
 
-print(len(dna_forward_cut))
-print(len(dna_backward_cut))
+#Obtain the len of each DNA cut
+len_forward = len(dna_forward_cut)
+len_backward = len(dna_backward_cut)
+
+#Print the length of each part
+print("forward length: " + str(len_forward)) 
+print("backward length: " + str(len_backward))

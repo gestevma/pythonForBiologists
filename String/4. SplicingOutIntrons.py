@@ -12,10 +12,12 @@ dna_seq = "ATCGATCGATCGATCGACTGACTAGTCATAGCTATGCATGTAGCTACTCGATCGATCGATCGATCGATC
 # Write a program that will print just the coding regions of the DNA sequence.
 #----------------------#
 
-#We need to obtain the exon sequence, so I cut from the beginning to 63 nucleotide,
-# and from nucleotide 93 to final
-exon1 = dna_seq[:63]
-exon2 = dna_seq[90:]
+#Remember that python starts in postion 0
+
+#We need to obtain theexon sequence, so I cut from the beginning to 63 nucleotide,
+# and from nucleotide 91 to final
+exon1 = dna_seq[:63] #I cut from 0 to 63 (not included)-->position 1 to 63 (63 nucleotides)
+exon2 = dna_seq[90:] #I cut from 90 to the end --> position 91 to end 
 
 #To obtain the coding sequence I just combine the two exons sequences
 coding_dna = exon1 + exon2
@@ -44,12 +46,12 @@ print("percentage of coding DNA: " + str(coding_percentage) + "%")
 #lowercase.
 #------------------------#
 
-#For doing that I replace the exons for the same sequence in lowerCase
+#For doing that I replace the introns for the same sequence in lowerCase
 
-dna_seq_lower_introns = dna_seq
-
+#First I save the intron sequence, it is between position 63 to 90 (not included)
 intron = dna_seq[63:90]
 
-dna_seq_lower_introns = dna_seq_lower_introns.replace(intron, intron.lower())
+#Later I replace the intron sequence by the same sequence in lower case
+dna_seq_lower_introns = dna_seq.replace(intron, intron.lower())
 
 print(dna_seq_lower_introns)
